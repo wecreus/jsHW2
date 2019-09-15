@@ -5,7 +5,12 @@ let textAreaValue;
 
 function compile(){
     textAreaValue = document.querySelector(".textArea").value;
-    console.log(textAreaValue);
+    
 }
 
-console.log(roles);
+// creating objects based on array roles
+for(let i = 0; i < roles.length; i++){
+    roles[i] = {name: roles[i], lines: []};
+}
+
+
