@@ -1,5 +1,6 @@
 body {
     font-family: Helvetica, sans-serif;
+    background-color: #23272a;
 }
 
 .Content-Holder {
@@ -7,12 +8,18 @@ body {
     height: 100%;
     padding: 20px;
     margin: auto;
-    background: lightgrey;
+    background: #3e464b;
 }
 
 .textArea {
-    width: 100%;
+    width: 99.5%;
     height: 500px;
     font-family: Helvetica, sans-serif;
     resize: none;
+    color: white;
+    background-color: #576066;
+}
+
+.textArea::placeholder {
+    color: lightgray;
 }

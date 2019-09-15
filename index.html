@@ -11,9 +11,10 @@
 <body>
 <script defer src="script.js"></script>
 <div class="Content-Holder">
-     <textarea class="textArea" placeholder="Исходный текст">
-</textarea>
-    <input type="button" value="Проверить текст" onclick="compile()" >
+    <form onsubmit="return false" class="formItself">
+    <textarea class="textArea" placeholder="Исходный текст" required></textarea>
+    <input type="submit" value="Проверить текст" onclick="compile()" >
+    </form>
     <div class="export"></div>
 </div>
 
