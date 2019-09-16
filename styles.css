@@ -41,7 +41,7 @@ body {
 }
 
 .inputButton {
-    width: 240px;
+    width: 250px;
     height: 45px;
     border-radius: 50px;
     border: 2px solid lightgray;
@@ -85,9 +85,38 @@ body {
 .export {
     font-size: 140%;
 }
+.export ol {
+    list-style: none;
+    counter-reset: my-awesome-counter;
+    padding-left: 0;
+}
+
+.exportDivName {
+    padding: 10px;
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+
+.exportDivName:hover {
+    background: #6f7c85;
+    color: white;
+
+}
+
+.exportDivArrow {
+    display: inline-block;
+    float: right;
+    transform: rotate(90deg);
+    font-size: 80%;
+    margin: auto 0;
+}
 
 .export li {
-    margin: 0 50px;
+    counter-increment: my-awesome-counter;
+    margin: 0 50px 10px 50px;
     font-size: 80%;
+}
 
+.export li::before {
+    content: counter(my-awesome-counter) ") ";
 }
