@@ -87,7 +87,6 @@ body {
 }
 .export ol {
     list-style: none;
-    counter-reset: my-awesome-counter;
     padding-left: 0;
 }
 
@@ -112,11 +111,6 @@ body {
 }
 
 .export li {
-    counter-increment: my-awesome-counter;
     margin: 0 50px 10px 50px;
     font-size: 80%;
-}
-
-.export li::before {
-    content: counter(my-awesome-counter) ") ";
 }

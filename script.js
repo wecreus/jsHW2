@@ -19,7 +19,7 @@ function compile() {
 
     // creating object based on roles
     for (let i = 0; i < roles.length; i++) {
-        roles[i] = { name: roles[i], linesIndex: [], lines: [] };
+        roles[i] = { name: roles[i], linesIndex: [], lines: [], lineNumber: [] };
     }
 
     let text = document.querySelector(".textArea").value;
@@ -53,8 +53,31 @@ function compile() {
         roles.sort(function(a, b) {
             return a.linesIndex[0] - b.linesIndex[0];
         });
+
+        // calculating order of every line
+        let tempArray = [];
+        for(let i = 0; i < roles.length; i++){
+            for(let j = 0; j < roles[i].linesIndex.length; j++){
+                tempArray.push(roles[i].linesIndex[j]);
+            }
+        }
+        tempArray.sort(function(a, b) {
+            return a - b;
+        });
+        for(let i = 0; i < roles.length; i++){
+            for(let j = 0; j < roles[i].linesIndex.length; j++){
+                for(let k = 0; k < tempArray.length; k++){
+                    if(roles[i].linesIndex[j] === tempArray[k]){
+                        roles[i].lineNumber.push(k+1);
+                    }
+                }
+            }
+        }
+
         exportData();
     }
+    console.log(roles);
+
 }
 
 function exportData() {
@@ -74,7 +97,7 @@ function exportData() {
 
         for (let j = 0; j < roles[i].lines.length; j++) {
             let tempLine = document.createElement("li");
-            tempLine.appendChild(document.createTextNode(roles[i].lines[j]));
+            tempLine.appendChild(document.createTextNode(roles[i].lineNumber[j] + ") " + roles[i].lines[j]));
             tempName.appendChild(tempLine);
         }
         exportDiv.appendChild(tempName);
