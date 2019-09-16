@@ -12,8 +12,14 @@
 <script defer src="script.js"></script>
 <div class="Content-Holder">
     <form onsubmit="return false" class="formItself">
-    <textarea class="textArea" placeholder="Исходный текст" required></textarea>
-    <input type="submit" value="Проверить текст" onclick="compile()" >
+        <div class="labelTextArea">
+            <label for="textArea">При нажатии на кнопку "Проверить текст" будут выведены строчки введенного сценария сгрупированные по ролям.</label>
+        </div>
+        <textarea class="textArea" id="textArea" placeholder="Исходный текст" required></textarea>
+        <div class="inputButtonDiv">
+            <input type="submit" value="Проверить текст" onclick="compile()" class="inputButton">
+            <button onclick="clearExportDiv()" class="clearButton">Очистить</button>
+        </div>
     </form>
     <div class="export"></div>
 </div>

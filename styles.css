@@ -1,6 +1,7 @@
 body {
     font-family: Helvetica, sans-serif;
     background-color: #23272a;
+    color: white;
 }
 
 .Content-Holder {
@@ -9,6 +10,14 @@ body {
     padding: 20px;
     margin: auto;
     background: #3e464b;
+}
+
+.labelTextArea {
+    text-align: center;
+    width: 100%;
+    font-size: 110%;
+    margin: 0 0 25px 0;
+    font-weight: bold;
 }
 
 .textArea {
@@ -22,4 +31,63 @@ body {
 
 .textArea::placeholder {
     color: lightgray;
+}
+
+.inputButtonDiv {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.inputButton {
+    width: 240px;
+    height: 45px;
+    border-radius: 50px;
+    border: 2px solid lightgray;
+    background: linear-gradient(#3e464b 0%, #3e464b 20%, rgb(42, 171, 178) 60%);
+    background-size:1px 400px;
+    cursor: pointer;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 120%;
+    color: lightgray;
+}
+
+.inputButton:hover, .clearButton:hover {
+    color: white;
+    border: 2px solid white;
+    background-position: 400px;
+    transition-property: border, color, background;
+    transition-duration: 500ms;
+    transition-timing-function: ease-out;
+}
+
+.clearButton {
+    position: absolute;
+    right: 0;
+    top: 7px;
+    vertical-align: center;
+    width: 150px;
+    height: 30px;
+    border-radius: 50px;
+    border: 2px solid lightgray;
+    background: linear-gradient(#3e464b 0%, #3e464b 20%, rgb(42, 171, 178) 60%);
+    background-size:1px 400px;
+    cursor: pointer;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 100%;
+    color: lightgray;
+}
+
+
+.export {
+    font-size: 140%;
+}
+
+.export li {
+    margin: 0 50px;
+    font-size: 80%;
+
 }

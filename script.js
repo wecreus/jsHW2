@@ -1,7 +1,7 @@
 let roles;
 
 function compile() {
-    //default value of roles, this allows us to change roles while we compile our result,
+    //default value of roles, this allows us to change roles array while we compile our result,
     //and still have brand new roles array every time we call this function
     roles = [
         "Городничий",
@@ -31,7 +31,8 @@ function compile() {
             let match;
             while ((match = myRegex.exec(text)) != null) {
                 roles[i].linesIndex.push(match.index);
-                let myRegex2 = new RegExp(roles[i].name + "( \\(.+\\))\\.","g"); // checking if there is brackets after name
+                // checking if there is brackets after name
+                let myRegex2 = new RegExp(roles[i].name + "( \\(.+\\))\\.","g");
                 let match2;
                 if((match2 = myRegex2.exec(match[0])) != null){
                     let temp = match[0];
@@ -52,7 +53,34 @@ function compile() {
         roles.sort(function (a, b) {
             return a.linesIndex[0] - b.linesIndex[0];
         });
+        exportData();
+    }
+}
 
-        console.log(roles);
+function exportData() {
+    clearExportDiv();
+    let exportDiv = document.querySelector(".export");
+    for(let i = 0; i < roles.length; i++){
+        let tempName = document.createElement("ol");
+        tempName.appendChild(document.createTextNode(roles[i].name));
+
+        for(let j = 0; j < roles[i].lines.length; j++){
+            let tempLine = document.createElement("li");
+            tempLine.appendChild(document.createTextNode(roles[i].lines[j]));
+            tempName.appendChild(tempLine);
+        }
+        exportDiv.appendChild(tempName);
+    }
+
+
+}
+
+function clearExportDiv(){
+    let exportDiv = document.querySelector(".export");
+    // clearing export
+    let child = exportDiv.lastElementChild;
+    while (child) {
+        exportDiv.removeChild(child);
+        child = exportDiv.lastElementChild;
     }
 }
