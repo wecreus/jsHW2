@@ -20,6 +20,19 @@ body {
     font-weight: bold;
 }
 
+.linkDiv {
+    padding: 0 0 10px 0;
+}
+
+.link {
+    font-weight: bold;
+}
+
+.link:visited {
+    color: white;
+}
+
+
 .textArea {
     width: 99.5%;
     height: 500px;
@@ -114,3 +127,4 @@ body {
     margin: 0 50px 10px 50px;
     font-size: 80%;
 }
+
